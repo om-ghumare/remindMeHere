@@ -1,30 +1,74 @@
 {
   "expo": {
-    "name": "remindMeHere",
+    "name": "RemindMeHere",
     "slug": "remindMeHere",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "dark",
     "newArchEnabled": true,
+    "scheme": "remindmehere",
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#0A0E1A"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "bundleIdentifier": "com.remindmehere.app",
+      "infoPlist": {
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "RemindMeHere needs your location to notify you when you arrive at or leave your saved reminder locations. Your location is never stored or sent anywhere.",
+        "NSLocationWhenInUseUsageDescription": "RemindMeHere needs your location to show your position on the map and detect when you're near a saved reminder location.",
+        "NSLocationAlwaysUsageDescription": "RemindMeHere needs background location access to notify you when you're near a saved reminder location, even when the app is closed. Your location is never stored or sent anywhere.",
+        "UIBackgroundModes": ["location", "fetch"]
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#0A0E1A"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "package": "com.remindmehere.app",
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_BACKGROUND_LOCATION",
+        "FOREGROUND_SERVICE",
+        "FOREGROUND_SERVICE_LOCATION",
+        "POST_NOTIFICATIONS",
+        "VIBRATE",
+        "USE_BIOMETRIC",
+        "USE_FINGERPRINT"
+      ],
+      "config": {
+        "googleMaps": {
+          "apiKey": "YOUR_GOOGLE_MAPS_API_KEY"
+        }
+      }
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "isIosBackgroundLocationEnabled": true,
+          "isAndroidBackgroundLocationEnabled": true,
+          "isAndroidForegroundServiceEnabled": true,
+          "locationAlwaysAndWhenInUsePermission": "RemindMeHere needs your location to notify you when you arrive at saved places. Your location is NEVER stored or sent anywhere.",
+          "locationWhenInUsePermission": "RemindMeHere needs your location to show you on the map.",
+          "locationAlwaysPermission": "RemindMeHere needs background location access to remind you near saved places, even when the app is closed."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/notification-icon.png",
+          "color": "#4F8CFF"
+        }
+      ],
+      ["expo-router", { "root": "./src/app" }],
+      "expo-font",
+      "expo-sqlite"
+    ]
   }
 }
