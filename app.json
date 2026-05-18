@@ -16,11 +16,17 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.remindmehere.app",
+      "config": {
+        "googleMapsApiKey": "AIzaSyAxFGECzLDTU0DmrS6LN_hbNHEiuaDhUfI"
+      },
       "infoPlist": {
         "NSLocationAlwaysAndWhenInUseUsageDescription": "RemindMeHere needs your location to notify you when you arrive at or leave your saved reminder locations. Your location is never stored or sent anywhere.",
         "NSLocationWhenInUseUsageDescription": "RemindMeHere needs your location to show your position on the map and detect when you're near a saved reminder location.",
         "NSLocationAlwaysUsageDescription": "RemindMeHere needs background location access to notify you when you're near a saved reminder location, even when the app is closed. Your location is never stored or sent anywhere.",
-        "UIBackgroundModes": ["location", "fetch"]
+        "UIBackgroundModes": [
+          "location",
+          "fetch"
+        ]
       }
     },
     "android": {
@@ -43,7 +49,7 @@
       ],
       "config": {
         "googleMaps": {
-          "apiKey": "YOUR_GOOGLE_MAPS_API_KEY"
+          "apiKey": "AIzaSyAxFGECzLDTU0DmrS6LN_hbNHEiuaDhUfI"
         }
       }
     },
@@ -66,7 +72,12 @@
           "color": "#4F8CFF"
         }
       ],
-      ["expo-router", { "root": "./src/app" }],
+      [
+        "expo-router",
+        {
+          "root": "./src/app"
+        }
+      ],
       "expo-font",
       "expo-sqlite"
     ]
